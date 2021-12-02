@@ -1,0 +1,14 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/receba-lib/ngx-api",
+  "deleteDestPath": false,
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@receba-lib/ngx-api": "@receba-lib/ngx-api"
+    }
+  },
+  "allowedNonPeerDependencies": [
+    "@receba-lib/ngx-api"
+  ]
+}

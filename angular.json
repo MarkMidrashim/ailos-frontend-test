@@ -1,0 +1,208 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ngx-receba": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/ngx-receba",
+      "sourceRoot": "projects/ngx-receba/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-ngx-receba/dist",
+            "index": "projects/ngx-receba/src/index.html",
+            "main": "projects/ngx-receba/src/main.ts",
+            "polyfills": "projects/ngx-receba/src/polyfills.ts",
+            "tsConfig": "projects/ngx-receba/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ngx-receba/src/favicon.ico",
+              "projects/ngx-receba/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-receba/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-receba/src/environments/environment.ts",
+                  "with": "projects/ngx-receba/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-receba:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-receba:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-receba:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "polyfills": "projects/ngx-receba/src/polyfills.ts",
+            "tsConfig": "projects/ngx-receba/tsconfig.spec.json",
+            "assets": [
+              "projects/ngx-receba/src/favicon.ico",
+              "projects/ngx-receba/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-receba/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-receba/tsconfig.app.json",
+              "projects/ngx-receba/tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "ngx-receba:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngx-receba:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "@receba-lib/ngx-component": {
+      "projectType": "library",
+      "root": "projects/receba-lib/ngx-component",
+      "sourceRoot": "projects/receba-lib/ngx-component/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/receba-lib/ngx-component/tsconfig.lib.json",
+            "project": "projects/receba-lib/ngx-component/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/receba-lib/ngx-component/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "tsConfig": "projects/receba-lib/ngx-component/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/receba-lib/ngx-component/tsconfig.lib.json",
+              "projects/receba-lib/ngx-component/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@receba-lib/ngx-api": {
+      "projectType": "library",
+      "root": "projects/receba-lib/ngx-api",
+      "sourceRoot": "projects/receba-lib/ngx-api/src",
+      "prefix": "ngx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/receba-lib/ngx-api/tsconfig.lib.json",
+            "project": "projects/receba-lib/ngx-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/receba-lib/ngx-api/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "tsConfig": "projects/receba-lib/ngx-api/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/receba-lib/ngx-api/tsconfig.lib.json",
+              "projects/receba-lib/ngx-api/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "013a6c68-c0fb-4937-841d-a94be50ea630"
+  },
+  "defaultProject": "ngx-receba"
+}

@@ -1,0 +1,111 @@
+
+
+{
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "Louise Sara Caldeira",
+      "idade": 41,
+      "cpf": "33846466905",
+      "data_nasc": "1980-02-11",
+      "sexo": false,
+      "email": "llouisesaracaldeira@gmail.com",
+      "situacao": true,
+      "conta": {
+        "id": 1,
+        "numero": "1622718-8",
+        "agencia": "1277",
+        "instituicao": "Bradesco"
+      },
+      "filiacao": {
+        "id": 1,
+        "mae": "Natália Alícia",
+        "pai": "Thiago Cauê Filipe Caldeira"
+      },
+      "endereco": {
+        "id": 1,
+        "cep": "79083-730",
+        "logradouro": "Rua Joelma",
+        "numero": 157,
+        "bairro": "Jardim Aero Rancho",
+        "cidade": "Campo Grande",
+        "estado": "MS"
+      },
+      "telefones": {
+        "id": 1,
+        "fixo": "(67) 2709-7203",
+        "celular": "(67) 98561-9836"
+      }
+    },
+    {
+      "id": 2,
+      "nome": "César Raimundo Osvaldo Moraes",
+      "idade": 34,
+      "cpf": "81200137787",
+      "data_nasc": "1987-11-05",
+      "sexo": true,
+      "email": "cesarraimundoosvaldomoraes-87@gmail.com",
+      "situacao": false,
+      "conta": {
+        "id": 2,
+        "numero": "1141186-4",
+        "agencia": "3723",
+        "instituicao": "Banco do Brasil"
+      },
+      "filiacao": {
+        "id": 2,
+        "mae": "Louise Eduarda",
+        "pai": "Geraldo Otávio Moraes"
+      },
+      "endereco": {
+        "id": 2,
+        "cep": "47803-046",
+        "logradouro": "Avenida México",
+        "numero": 456,
+        "bairro": "Jardins",
+        "cidade": "Barreiras",
+        "estado": "BA"
+      },
+      "telefones": {
+        "id": 2,
+        "fixo": "(77) 2971-3833",
+        "celular": "(77) 98982-5081"
+      }
+    },
+    {
+      "id": 3,
+      "nome": "Miguel Fernando Jorge Aragão",
+      "idade": 79,
+      "cpf": "98971589604",
+      "data_nasc": "1942-01-19",
+      "sexo": true,
+      "email": "mmiguelfernandojorgearagao@gmail.com",
+      "situacao": true,
+      "conta": {
+        "id": 3,
+        "numero": "65057-4",
+        "agencia": "1378",
+        "instituicao": "Itaú"
+      },
+      "filiacao": {
+        "id": 3,
+        "mae": "Sophia Tereza",
+        "pai": "Luan Kaique Carlos Eduardo Aragão"
+      },
+      "endereco": {
+        "id": 3,
+        "cep": "65910-390",
+        "logradouro": "Rua Juruna",
+        "numero": 419,
+        "bairro": "Vila Redenção I",
+        "cidade": "Imperatriz",
+        "estado": "MA"
+      },
+      "telefones": {
+        "id": 3,
+        "fixo": "(98) 2644-1633",
+        "celular": "(98) 99671-5373"
+      }
+    }
+  ]
+}
