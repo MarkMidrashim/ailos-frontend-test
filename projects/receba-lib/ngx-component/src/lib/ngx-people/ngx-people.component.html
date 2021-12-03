@@ -1,0 +1,32 @@
+<div class="row" >
+  <div class="col-12">
+    <div class="card mb-4">
+      <div class="card-header pb-0">
+        <h6 [hidden]="!loading">Geral:</h6>
+        <ngx-skeleton-loader
+          [hidden]="loading"
+          count="1"
+          [theme]="{ width: '20em', 'border-radius': '40', height: '40px' }"
+        ></ngx-skeleton-loader>
+      </div>
+      <div class="card-body px-0 pt-0 pb-2">
+        <div class="table-responsive px-4">
+          <ng-container *ngIf="pessoa; else loading">
+            <div [hidden]="!loading" class="form-group">
+              <p>{{ pessoa?.nome }}</p>
+              <p>{{ pessoa?.email }}</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <ngx-skeleton-loader
+    [hidden]="loading"
+    count="6"
+    [theme]="{ 'border-radius': '40', height: '40px' }"
+  ></ngx-skeleton-loader>
+</ng-template>

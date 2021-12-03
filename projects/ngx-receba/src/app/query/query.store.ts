@@ -25,8 +25,15 @@ export class QueryStore {
    * @param searchTerm: string
    */
   search(searchTerm: string): void {
-    let params = new HttpParams().set('cpf', searchTerm);
-    this.pessoaAPI.find(params).subscribe((pessoa: IPessoa) => this.pessoa.next(pessoa));
-    this.pessoa.complete();
+    let params = new HttpParams()
+      .set('cpf', searchTerm)
+      .set('singular', '1');
+
+    this.pessoaAPI.get(params)
+      .subscribe((pessoa: IPessoa) => this.pessoa.next(pessoa));
+  }
+
+  reset(): void {
+    this.pessoa.next(undefined);
   }
 }

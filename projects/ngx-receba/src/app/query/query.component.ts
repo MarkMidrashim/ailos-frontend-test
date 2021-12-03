@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, HostBinding, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { validate } from 'gerador-validador-cpf';
 import Swal from 'sweetalert2';
 import { QueryStore } from './query.store';
 import { IPessoa } from '@receba-lib/ngx-api';
-import { count, map } from "rxjs/operators";
+import { NgxBreadcrumbService } from '@receba-lib/ngx-component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-query',
@@ -15,24 +16,29 @@ import { count, map } from "rxjs/operators";
 export class QueryComponent implements OnInit {
 
   public contentLoaded: boolean = false;
-  cpfInputMask: string = '000.000.000-00';
-  cpfPlaceholder: string = '___.___.___-__';
-  form!: FormGroup;
+  public searchPeople: boolean = false;
+  public cpfInputMask: string = '000.000.000-00';
+  public cpfPlaceholder: string = '___.___.___-__';
+  public form!: FormGroup;
+  public pessoa$: Observable<IPessoa> = this._store.pessoa$;
 
   /**
    * CONSTRUCTOR
-   * @param formBuilder: FormBuilder
-   * @param store: QueryStore
+   * @param _formBuilder: FormBuilder
+   * @param _store: QueryStore
+   * @param _breadcrumbService: NgxBreadcrumbService
+   * @param _router: Router
    */
   constructor(
-    private formBuilder: FormBuilder,
-    private store: QueryStore
+    private _formBuilder: FormBuilder,
+    private _store: QueryStore,
+    private _breadcrumbService: NgxBreadcrumbService
   ) { }
 
   ngOnInit() {
-    setTimeout(() => { this.contentLoaded = true }, 2000);
+    setTimeout(() => { this.contentLoaded = true }, 1500);
 
-    this.form = this.formBuilder.group({
+    this.form = this._formBuilder.group({
       cpf: new FormControl('', [
         Validators.required,
         Validators.minLength(11),
@@ -40,6 +46,8 @@ export class QueryComponent implements OnInit {
         Validators.pattern('^\d{3}\.\d{3}\.\d{3}-\d{2}$')
       ])
     });
+
+    this._breadcrumbService.add('query-breadcrumb', 'Consulta', '/query', 1);
   }
 
   /**
@@ -48,15 +56,8 @@ export class QueryComponent implements OnInit {
   submit(): void {
     const cpf: string = this.form.get('cpf')?.value;
     if (validate(cpf)) {
-      this.store.search(cpf);
-
-      this.store.pessoa$.pipe(count()).subscribe(value => {
-        console.log(value);
-      });
-
-      this.store.pessoa$.subscribe((pessoa: IPessoa) => {
-        console.log(pessoa);
-      });
+      this._store.search(cpf);
+      this.searchPeople = true;
     } else {
       Swal.fire(
         'CPF Inválido!',

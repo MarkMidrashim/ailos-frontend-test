@@ -5,6 +5,7 @@ import { QueryComponent } from './query.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NgxPeopleModule } from '@receba-lib/ngx-component';
 
 const maskConfig: Partial<IConfig> = {
   validation: true
@@ -17,6 +18,7 @@ const maskConfig: Partial<IConfig> = {
     QueryRoutingModule,
     ReactiveFormsModule,
     NgxSkeletonLoaderModule,
+    NgxPeopleModule,
     NgxMaskModule.forRoot(maskConfig)
   ]
 })

@@ -8,7 +8,7 @@
   "scripts": {
     "ng": "ng",
     "start:app": "ng serve ngx-receba --disable-host-check --host 0.0.0.0",
-    "start:database": "json-server --delay 500 --read-only db.json",
+    "start:database": "json-server --delay 500 --read-only database/db.json --middlewares database/singular.js",
     "build": "ng build",
     "initial-build": "npm i && npm run build:libs",
     "build:libs": "npm run build:lib-ngx-api && npm run build:lib-ngx-component",
@@ -40,10 +40,12 @@
     "@popperjs/core": "^2.9.2",
     "bootstrap": "^5.0.2",
     "gerador-validador-cpf": "^5.0.2",
+    "json-server": "^0.17.0",
     "ngx-infinite-scroll": "^10.0.1",
     "ngx-mask": "^11.1.5",
     "ngx-skeleton-loader": "^4.0.0",
     "rxjs": "~6.6.0",
+    "smooth-scrollbar": "^8.7.0",
     "sweetalert2": "^11.0.19",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

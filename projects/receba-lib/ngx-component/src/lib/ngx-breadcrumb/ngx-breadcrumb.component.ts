@@ -38,6 +38,8 @@ export class NgxBreadcrumbComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.loading = false;
+
     this._router.events
       .pipe(takeUntil(this.destroy$), filter((event: RouteEvent) => event instanceof NavigationEnd))
       .subscribe(() => this.prepare())
@@ -48,24 +50,22 @@ export class NgxBreadcrumbComponent implements OnInit, OnDestroy {
         this.breadcrumbs = res;
         this.prepare();
       });
-
-      this.loading = true;
   }
 
   private prepare(): void {
     if (this.breadcrumbs?.length > 0) {
       const filterBreadcrumb = this.breadcrumbs.find((a: IBreadcrumb) => a.url === this._router.url);
       if (filterBreadcrumb) {
-        let breadcrumbs = this.breadcrumbs
+        this.breadcrumbs = this.breadcrumbs
           .sort((a: IBreadcrumb, b: IBreadcrumb) => a.position - b.position)
           .filter((a: IBreadcrumb) => a.position <= filterBreadcrumb.position);
 
-        this.breadcrumbs = breadcrumbs;
         this.lastBreadcrumb = this.breadcrumbs[this.breadcrumbs.length -1];
         this._cd.detectChanges();
         this._cd.markForCheck();
       }
     }
+    this.loading = true;
   }
 
   ngOnDestroy(): void {

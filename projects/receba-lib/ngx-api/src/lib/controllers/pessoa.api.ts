@@ -1,8 +1,9 @@
+import { IPaginableAPIModel } from './../domain/paginable.interface';
 import { Injectable, Injector } from "@angular/core";
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IPessoa } from '../models/pessoa';
-import { AbstractAPI } from "../domain/abstract-api";
+import { AbstractAPI } from "../domain/api.abstract";
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,12 @@ export class PessoaAPI extends AbstractAPI<IPessoa> {
     super(injector);
   }
 
-  find(params?: HttpParams): Observable<IPessoa> {
-    return super.findGeneric<IPessoa>(params);
+  get(params?: HttpParams): Observable<IPessoa> {
+    return super.getGeneric<IPessoa>(params);
+  }
+
+  getAll(params?: HttpParams): Observable<IPaginableAPIModel<IPessoa>> {
+    return super.getListGeneric<IPessoa>(params);
   }
 
   create(entity: IPessoa, params?: HttpParams): Observable<IPessoa> {

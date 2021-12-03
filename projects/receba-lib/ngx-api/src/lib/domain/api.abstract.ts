@@ -1,7 +1,8 @@
+import { IPaginableAPIModel } from './paginable.interface';
 import { Injector } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Entity } from './abstract-entity';
+import { Entity } from './entity.abstract';
 
 export abstract class AbstractAPI<T> {
 
@@ -36,8 +37,18 @@ export abstract class AbstractAPI<T> {
    * @template U objeto abstrato de retorno
    * @returns
    */
-  protected findGeneric<U>(params?: HttpParams): Observable<U> {
+  protected getGeneric<U>(params?: HttpParams): Observable<U> {
     return this.http.get<U>(this.url, { params: params });
+  }
+
+  /**
+   * Método responsável por buscar uma lista de entidades da api com objeto genérico
+   * @param params?: HttpParams
+   * @template U objeto abstrato de retorno
+   * @returns
+   */
+  protected getListGeneric<U>(params?: HttpParams): Observable<IPaginableAPIModel<U>> {
+    return this.http.get<IPaginableAPIModel<U>>(this.url, { params: params });
   }
 
   /**
