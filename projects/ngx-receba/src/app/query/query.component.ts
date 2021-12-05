@@ -57,21 +57,7 @@ export class QueryComponent implements OnInit {
     const cpf: string = this.form.get('cpf')?.value;
     if (validate(cpf)) {
       this._store.search(cpf);
-
-      var error: boolean = false;
-      this._store.notify$.subscribe(() => {
-        Swal.fire(
-          'CPF Não identificado!',
-          `O CPF informado não foi identificado na base de dados.`,
-          'warning'
-        );
-        this.searchPeople = false;
-        error = true;
-      });
-
-      if (!error) {
-        this.searchPeople = true;
-      }
+      this.checkResultSearch();
     } else {
       Swal.fire(
         'CPF Inválido!',
@@ -79,6 +65,25 @@ export class QueryComponent implements OnInit {
         'error'
       );
     }
+  }
+
+  private checkResultSearch(): void {
+    var error: boolean = false;
+    this._store.notify$.subscribe(() => {
+      Swal.fire(
+        'CPF Não identificado!',
+        `O CPF informado não foi identificado na base de dados.`,
+        'warning'
+      );
+      this.searchPeople = false;
+      error = true;
+    });
+
+    this.pessoa$.subscribe(() => {
+      if (!error) {
+        this.searchPeople = true;
+      }
+    })
   }
 
 }

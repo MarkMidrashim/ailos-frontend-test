@@ -38,6 +38,6 @@
   </div>
 </div>
 
-<div class="row" *ngIf="searchPeople">
+<div class="row" [hidden]="!searchPeople">
   <ngx-people [pessoa]="pessoa$"></ngx-people>
 </div>
