@@ -26,7 +26,7 @@ export class NgxPeopleComponent implements OnInit, OnDestroy {
       filter((pessoa: IPessoa) => pessoa !== undefined)
     ).subscribe((pessoa: IPessoa) => {
       this.pessoa = pessoa;
-      this.loading = true;
+      this.loading = true
     });
   }
 

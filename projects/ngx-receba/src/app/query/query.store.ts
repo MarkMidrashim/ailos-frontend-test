@@ -1,13 +1,16 @@
 import { HttpParams } from '@angular/common/http';
 import { IPessoa } from '../../../../receba-lib/ngx-api/src/lib/models/pessoa';
 import { Injectable } from "@angular/core";
-import { ReplaySubject } from "rxjs";
+import { ReplaySubject, Subject } from "rxjs";
 import { PessoaAPI } from '@receba-lib/ngx-api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QueryStore {
+
+  private notify = new Subject<any>();
+  readonly notify$ = this.notify.asObservable();
 
   private pessoa = new ReplaySubject<IPessoa>(1);
   readonly pessoa$ = this.pessoa.asObservable();
@@ -29,8 +32,10 @@ export class QueryStore {
       .set('cpf', searchTerm)
       .set('singular', '1');
 
-    this.pessoaAPI.get(params)
-      .subscribe((pessoa: IPessoa) => this.pessoa.next(pessoa));
+    this.pessoaAPI.get(params).subscribe(
+      (pessoa: IPessoa) => this.pessoa.next(pessoa),
+      (error: Error) => this.notify.next(error)
+    );
   }
 
   reset(): void {
