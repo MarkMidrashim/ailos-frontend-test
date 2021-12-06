@@ -7,13 +7,13 @@
   },
   "scripts": {
     "ng": "ng",
-    "start:app": "ng serve ngx-receba --disable-host-check --host 0.0.0.0",
+    "start:app": "ng serve ngx-ailos --disable-host-check --host 0.0.0.0",
     "start:database": "json-server --delay 500 --read-only database/db.json --middlewares database/singular.js",
     "build": "ng build",
     "initial-build": "npm i && npm run build:libs",
     "build:libs": "npm run build:lib-ngx-api && npm run build:lib-ngx-component",
-    "build:lib-ngx-api": "ng build @receba-lib/ngx-api",
-    "build:lib-ngx-component": "ng build @receba-lib/ngx-component",
+    "build:lib-ngx-api": "ng build @ailos-lib/ngx-api",
+    "build:lib-ngx-component": "ng build @ailos-lib/ngx-component",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

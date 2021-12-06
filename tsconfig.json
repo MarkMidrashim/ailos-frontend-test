@@ -24,13 +24,13 @@
       "dom"
     ],
     "paths": {
-      "@receba-lib/ngx-api": [
-        "dist/receba-lib/ngx-api/receba-lib-ngx-api",
-        "dist/receba-lib/ngx-api"
+      "@ailos-lib/ngx-api": [
+        "dist/ailos-lib/ngx-api/ailos-lib-ngx-api",
+        "dist/ailos-lib/ngx-api"
       ],
-      "@receba-lib/ngx-component": [
-        "dist/receba-lib/ngx-component/receba-lib-ngx-component",
-        "dist/receba-lib/ngx-component"
+      "@ailos-lib/ngx-component": [
+        "dist/ailos-lib/ngx-component/ailos-lib-ngx-component",
+        "dist/ailos-lib/ngx-component"
       ]
     }
   },

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-receba": {
+    "ngx-ailos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -13,25 +13,25 @@
           "strict": true
         }
       },
-      "root": "projects/ngx-receba",
-      "sourceRoot": "projects/ngx-receba/src",
+      "root": "projects/ngx-ailos",
+      "sourceRoot": "projects/ngx-ailos/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app-ngx-receba/dist",
-            "index": "projects/ngx-receba/src/index.html",
-            "main": "projects/ngx-receba/src/main.ts",
-            "polyfills": "projects/ngx-receba/src/polyfills.ts",
-            "tsConfig": "projects/ngx-receba/tsconfig.app.json",
+            "outputPath": "dist/app-ngx-ailos/dist",
+            "index": "projects/ngx-ailos/src/index.html",
+            "main": "projects/ngx-ailos/src/main.ts",
+            "polyfills": "projects/ngx-ailos/src/polyfills.ts",
+            "tsConfig": "projects/ngx-ailos/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "projects/ngx-receba/src/favicon.ico",
-              "projects/ngx-receba/src/assets"
+              "projects/ngx-ailos/src/favicon.ico",
+              "projects/ngx-ailos/src/assets"
             ],
             "styles": [
-              "projects/ngx-receba/src/styles.scss"
+              "projects/ngx-ailos/src/styles.scss"
             ],
             "scripts": []
           },
@@ -39,8 +39,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/ngx-receba/src/environments/environment.ts",
-                  "with": "projects/ngx-receba/src/environments/environment.prod.ts"
+                  "replace": "projects/ngx-ailos/src/environments/environment.ts",
+                  "with": "projects/ngx-ailos/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -68,31 +68,31 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-receba:build"
+            "browserTarget": "ngx-ailos:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-receba:build:production"
+              "browserTarget": "ngx-ailos:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-receba:build"
+            "browserTarget": "ngx-ailos:build"
           }
         },
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "polyfills": "projects/ngx-receba/src/polyfills.ts",
-            "tsConfig": "projects/ngx-receba/tsconfig.spec.json",
+            "polyfills": "projects/ngx-ailos/src/polyfills.ts",
+            "tsConfig": "projects/ngx-ailos/tsconfig.spec.json",
             "assets": [
-              "projects/ngx-receba/src/favicon.ico",
-              "projects/ngx-receba/src/assets"
+              "projects/ngx-ailos/src/favicon.ico",
+              "projects/ngx-ailos/src/assets"
             ],
             "styles": [
-              "projects/ngx-receba/src/styles.scss"
+              "projects/ngx-ailos/src/styles.scss"
             ],
             "scripts": []
           }
@@ -101,8 +101,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngx-receba/tsconfig.app.json",
-              "projects/ngx-receba/tsconfig.spec.json",
+              "projects/ngx-ailos/tsconfig.app.json",
+              "projects/ngx-ailos/tsconfig.spec.json",
               "e2e/tsconfig.json"
             ],
             "exclude": [
@@ -114,46 +114,46 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-receba:serve"
+            "devServerTarget": "ngx-ailos:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-receba:serve:production"
+              "devServerTarget": "ngx-ailos:serve:production"
             }
           }
         }
       }
     },
-    "@receba-lib/ngx-component": {
+    "@ailos-lib/ngx-component": {
       "projectType": "library",
-      "root": "projects/receba-lib/ngx-component",
-      "sourceRoot": "projects/receba-lib/ngx-component/src",
+      "root": "projects/ailos-lib/ngx-component",
+      "sourceRoot": "projects/ailos-lib/ngx-component/src",
       "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/receba-lib/ngx-component/tsconfig.lib.json",
-            "project": "projects/receba-lib/ngx-component/ng-package.json"
+            "tsConfig": "projects/ailos-lib/ngx-component/tsconfig.lib.json",
+            "project": "projects/ailos-lib/ngx-component/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/receba-lib/ngx-component/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ailos-lib/ngx-component/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "tsConfig": "projects/receba-lib/ngx-component/tsconfig.spec.json"
+            "tsConfig": "projects/ailos-lib/ngx-component/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/receba-lib/ngx-component/tsconfig.lib.json",
-              "projects/receba-lib/ngx-component/tsconfig.spec.json"
+              "projects/ailos-lib/ngx-component/tsconfig.lib.json",
+              "projects/ailos-lib/ngx-component/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -162,36 +162,36 @@
         }
       }
     },
-    "@receba-lib/ngx-api": {
+    "@ailos-lib/ngx-api": {
       "projectType": "library",
-      "root": "projects/receba-lib/ngx-api",
-      "sourceRoot": "projects/receba-lib/ngx-api/src",
+      "root": "projects/ailos-lib/ngx-api",
+      "sourceRoot": "projects/ailos-lib/ngx-api/src",
       "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "tsConfig": "projects/receba-lib/ngx-api/tsconfig.lib.json",
-            "project": "projects/receba-lib/ngx-api/ng-package.json"
+            "tsConfig": "projects/ailos-lib/ngx-api/tsconfig.lib.json",
+            "project": "projects/ailos-lib/ngx-api/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/receba-lib/ngx-api/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ailos-lib/ngx-api/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "tsConfig": "projects/receba-lib/ngx-api/tsconfig.spec.json"
+            "tsConfig": "projects/ailos-lib/ngx-api/tsconfig.spec.json"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/receba-lib/ngx-api/tsconfig.lib.json",
-              "projects/receba-lib/ngx-api/tsconfig.spec.json"
+              "projects/ailos-lib/ngx-api/tsconfig.lib.json",
+              "projects/ailos-lib/ngx-api/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -204,5 +204,5 @@
   "cli": {
     "analytics": "013a6c68-c0fb-4937-841d-a94be50ea630"
   },
-  "defaultProject": "ngx-receba"
+  "defaultProject": "ngx-ailos"
 }

@@ -47,7 +47,7 @@ Você encontrará os seguintes diretórios e arquivos:
 ├── jest.config.js
 ├── package.json
 ├── projects
-│   ├── ngx-receba
+│   ├── ngx-ailos
 │   │   ├── jest.config.js
 │   │   ├── src
 │   │   │   ├── app
@@ -270,7 +270,7 @@ Você encontrará os seguintes diretórios e arquivos:
 │   │   │   └── styles.scss
 │   │   ├── tsconfig.app.json
 │   │   └── tsconfig.spec.json
-│   └── receba-lib
+│   └── ailos-lib
 │       ├── ngx-api
 │       │   ├── jest.config.js
 │       │   ├── ng-package.json
