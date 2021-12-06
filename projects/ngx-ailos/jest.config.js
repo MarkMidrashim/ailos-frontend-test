@@ -1,10 +1,17 @@
-const baseConfig = require('../../jest.config');
+const baseConfig = require('../../jest.base.config');
 
 module.exports = {
   ...baseConfig,
+  roots: ['<rootDir>/projects/ngx-ailos/src/'],
+  coverageDirectory: '<rootDir>/coverage/ngx-ailos',
   globals: {
     'ts-jest': {
-      tsConfig: '<rootDir>/projects/ngx-ailos/tsconfig.spec.json',
+      tsconfig: '<rootDir>/projects/ngx-ailos/tsconfig.spec.json',
+      stringifyContentPathRegex: '\\.html$',
+      astTransformers: [
+        'jest-preset-angular/build/InlineFilesTransformer',
+        'jest-preset-angular/build/StripStylesTransformer',
+      ],
     },
   },
 };

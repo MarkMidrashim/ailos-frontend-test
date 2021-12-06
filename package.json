@@ -14,6 +14,9 @@
     "build:libs": "npm run build:lib-ngx-api && npm run build:lib-ngx-component",
     "build:lib-ngx-api": "ng build @ailos-lib/ngx-api",
     "build:lib-ngx-component": "ng build @ailos-lib/ngx-component",
+    "test:coverage": "npm run test:coverage:libs && npm run test:coverage:apps",
+    "test:coverage:libs": "ng test @ailos-lib/ngx-api --watch && ng test @ailos-lib/ngx-component --watch",
+    "test:coverage:apps": "ng test ngx-ailos --coverage",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

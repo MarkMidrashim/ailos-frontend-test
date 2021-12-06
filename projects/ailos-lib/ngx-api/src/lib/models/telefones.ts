@@ -4,28 +4,20 @@ export interface ITelefones {
   celular: string;
 }
 
-export interface ITelefonesAPIModel {
+export class Telefones implements ITelefones {
   id: number;
   fixo: string;
   celular: string;
-}
 
-export class Telefones implements ITelefones {
   constructor(rawData: ITelefones) {
     this.id = rawData.id;
     this.fixo = rawData.fixo;
     this.celular = rawData.celular;
   }
-
-  id: number;
-  fixo: string;
-  celular: string;
 }
 
-export function ParseTelefonesAPIToTelefones(telefones: ITelefonesAPIModel): ITelefones {
-  return {
-    id: telefones.id,
-    fixo: telefones.fixo,
-    celular: telefones.celular
-  };
+export const publicPhonesMock: ITelefones = {
+  id: 3,
+  fixo: "(98) 2644-1633",
+  celular: "(98) 99671-5373"
 }

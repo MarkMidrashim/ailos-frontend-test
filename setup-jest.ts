@@ -1,20 +1,17 @@
-import 'jest-preset-angular';
+import 'jest-preset-angular/setup-jest';
+import '@angular/localize/init';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
-/* global mocks for jsdom */
-const mock = () => {
-  let storage: { [key: string]: string } = {};
-  return {
-    getItem: (key: string) => (key in storage ? storage[key] : null),
-    setItem: (key: string, value: string) => (storage[key] = value || ''),
-    removeItem: (key: string) => delete storage[key],
-    clear: () => (storage = {}),
-  };
-};
+registerLocaleData(localePt, 'pt');
 
-Object.defineProperty(window, 'localStorage', { value: mock() });
-Object.defineProperty(window, 'sessionStorage', { value: mock() });
 Object.defineProperty(window, 'getComputedStyle', {
-  value: () => ['-webkit-appearance'],
+  value: () => {
+    return {
+      display: 'none',
+      appearance: ['-webkit-appearance'],
+    };
+  },
 });
 
 Object.defineProperty(document.body.style, 'transform', {
@@ -26,5 +23,7 @@ Object.defineProperty(document.body.style, 'transform', {
   },
 });
 
-/* output shorter and more meaningful Zone error stack traces */
-// Error.stackTraceLimit = 2;
+Object.defineProperty(window.navigator, 'userAgent', {
+  value:
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36',
+});
