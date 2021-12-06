@@ -1,10 +1,10 @@
 export declare type Instituicoes =
-  "Bradesco" |
-  "Banco do Brasil" |
-  "Santander" |
-  "Itaú" |
-  "Inter" |
-  "Nu Pagamentos";
+  'Bradesco' |
+  'Banco do Brasil' |
+  'Santander' |
+  'Itaú' |
+  'Inter' |
+  'Nu Pagamentos';
 
 export interface IConta {
   id: number;
@@ -29,7 +29,7 @@ export class Conta implements IConta {
 
 export const publicAccountMock: IConta = {
   id: 3,
-  numero: "65057-4",
-  agencia: "1378",
-  instituicao: "Itaú"
-}
+  numero: '65057-4',
+  agencia: '1378',
+  instituicao: 'Itaú'
+};

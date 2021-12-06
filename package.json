@@ -14,12 +14,15 @@
     "build:libs": "npm run build:lib-ngx-api && npm run build:lib-ngx-component",
     "build:lib-ngx-api": "ng build @ailos-lib/ngx-api",
     "build:lib-ngx-component": "ng build @ailos-lib/ngx-component",
-    "test:coverage": "npm run test:coverage:libs && npm run test:coverage:apps",
-    "test:coverage:libs": "ng test @ailos-lib/ngx-api --watch && ng test @ailos-lib/ngx-component --watch",
-    "test:coverage:apps": "ng test ngx-ailos --coverage",
+    "test:coverage": "npm run test:coverage:libs && npm run test:coverage:ngx-ailos",
+    "test:coverage:libs": "npm run test:coverage:lib-ngx-api && npm run test:coverage:lib-ngx-component",
+    "test:coverage:lib-ngx-api": "ng test @ailos-lib/ngx-api",
+    "test:coverage:lib-ngx-component": "ng test @ailos-lib/ngx-component",
+    "test:coverage:ngx-ailos": "ng test ngx-ailos --coverage",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ngcc"
   },
   "husky": {
     "hooks": {
@@ -35,6 +38,7 @@
     "@angular/core": "~11.2.14",
     "@angular/elements": "~11.2.14",
     "@angular/forms": "~11.2.14",
+    "@angular/localize": "^13.0.3",
     "@angular/platform-browser": "~11.2.14",
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",

@@ -1,9 +1,9 @@
 import { IPaginableAPIModel } from '../domain/paginable.interface';
-import { Injectable, Injector } from "@angular/core";
+import { Injectable, Injector } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IPessoa } from '../models/pessoa';
-import { AbstractAPI } from "../domain/api.abstract";
+import { AbstractAPI } from '../domain/api.abstract';
 
 @Injectable({
   providedIn: 'root'

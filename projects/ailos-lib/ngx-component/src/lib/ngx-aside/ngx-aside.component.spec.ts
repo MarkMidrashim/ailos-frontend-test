@@ -22,4 +22,11 @@ describe('NgxAsideComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(NgxAsideComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('a.navbar-brand span').textContent).toContain('Ailos');
+  });
 });

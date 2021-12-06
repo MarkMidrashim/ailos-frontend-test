@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-navbar',
+  selector: 'lib-ngx-navbar',
   templateUrl: './ngx-navbar.component.html',
   styleUrls: ['./ngx-navbar.component.scss']
 })

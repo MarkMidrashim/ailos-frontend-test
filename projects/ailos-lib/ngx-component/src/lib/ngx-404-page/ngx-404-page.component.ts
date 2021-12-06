@@ -1,15 +1,15 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Location } from '@angular/common';
 
 @Component({
-  selector: 'ngx-404-page',
+  selector: 'lib-ngx-404-page',
   templateUrl: './ngx-404-page.component.html',
   styleUrls: ['./ngx-404-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Ngx404PageComponent {
 
-  message: string = 'The webmaster said that you can not enter this page...';
+  message = 'The webmaster said that you can not enter this page...';
 
   /**
    * CONSTRUCTOR

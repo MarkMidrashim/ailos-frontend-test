@@ -1,5 +1,5 @@
-import { Component, Injector, NgModuleRef } from "@angular/core";
-import { AppModule } from "./app.module";
+import { Component, Injector, NgModuleRef } from '@angular/core';
+import { AppModule } from './app.module';
 
 @Component({
   selector: 'app-injector',

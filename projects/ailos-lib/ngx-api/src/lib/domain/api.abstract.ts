@@ -7,7 +7,7 @@ import { Entity } from './entity.abstract';
 export abstract class AbstractAPI<T> {
 
   /**
-   *
+   * URL a ser chamada
    * @protected
    * @abstract
    * @type {string}
@@ -16,7 +16,7 @@ export abstract class AbstractAPI<T> {
   protected abstract url: string;
 
   /**
-   *
+   * Service http
    * @protected
    * @type {HttpClient}
    * @memberof AbstractAPI

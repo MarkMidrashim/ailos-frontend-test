@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-aside',
+  selector: 'lib-ngx-aside',
   templateUrl: './ngx-aside.component.html',
   styleUrls: ['./ngx-aside.component.scss']
 })

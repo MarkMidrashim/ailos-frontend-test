@@ -12,14 +12,14 @@ export interface IBreadcrumb {
 }
 
 @Component({
-  selector: 'ngx-breadcrumb',
+  selector: 'lib-ngx-breadcrumb',
   templateUrl: './ngx-breadcrumb.component.html',
   styleUrls: ['./ngx-breadcrumb.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NgxBreadcrumbComponent implements OnInit, OnDestroy {
 
-  loading: boolean = false;
+  loading = false;
   breadcrumbs!: IBreadcrumb[];
   lastBreadcrumb!: IBreadcrumb;
 
@@ -42,7 +42,7 @@ export class NgxBreadcrumbComponent implements OnInit, OnDestroy {
 
     this._router.events
       .pipe(takeUntil(this.destroy$), filter((event: RouteEvent) => event instanceof NavigationEnd))
-      .subscribe(() => this.prepare())
+      .subscribe(() => this.prepare());
 
     this._service.breadcrumb$
       .pipe(takeUntil(this.destroy$))
@@ -60,7 +60,7 @@ export class NgxBreadcrumbComponent implements OnInit, OnDestroy {
           .sort((a: IBreadcrumb, b: IBreadcrumb) => a.position - b.position)
           .filter((a: IBreadcrumb) => a.position <= filterBreadcrumb.position);
 
-        this.lastBreadcrumb = this.breadcrumbs[this.breadcrumbs.length -1];
+        this.lastBreadcrumb = this.breadcrumbs[this.breadcrumbs.length - 1];
         this._cd.detectChanges();
         this._cd.markForCheck();
       }

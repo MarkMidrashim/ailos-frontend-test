@@ -4,15 +4,15 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { IPessoa } from '@ailos-lib/ngx-api';
 
 @Component({
-  selector: 'ngx-people',
+  selector: 'lib-ngx-people',
   templateUrl: './ngx-people.component.html',
   styleUrls: ['./ngx-people.component.scss']
 })
 export class NgxPeopleComponent implements OnInit, OnDestroy {
 
-  @Input("pessoa") pessoa$!: Observable<IPessoa>;
+  @Input('pessoa') pessoa$!: Observable<IPessoa>;
   public pessoa!: IPessoa;
-  loading: boolean = false;
+  loading = false;
   private destroy$: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
 
   /**
@@ -21,12 +21,12 @@ export class NgxPeopleComponent implements OnInit, OnDestroy {
   constructor() { }
 
   ngOnInit(): void {
-    this.pessoa$.pipe(
+    this.pessoa$?.pipe(
       takeUntil(this.destroy$),
       filter((pessoa: IPessoa) => pessoa !== undefined)
     ).subscribe((pessoa: IPessoa) => {
       this.pessoa = pessoa;
-      this.loading = true
+      this.loading = true;
     });
   }
 

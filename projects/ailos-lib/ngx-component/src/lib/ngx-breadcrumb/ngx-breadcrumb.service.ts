@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { ReplaySubject, Observable } from 'rxjs';
 import { IBreadcrumb } from './ngx-breadcrumb.component';
 
@@ -29,7 +29,7 @@ export class NgxBreadcrumbService {
   /**
    * Método responsável por verificar se um item já existe
    * @param id: string
-   * @returns
+   * @returns Verdadeiro se o item estiver mapeado
    */
   wasAdded(id: string): boolean {
     return !!Array.from(this.breadcrumbs.values()).find(

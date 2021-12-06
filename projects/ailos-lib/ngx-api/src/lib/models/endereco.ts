@@ -30,10 +30,10 @@ export class Endereco implements IEndereco {
 
 export const publicAddressMock: IEndereco = {
   id: 3,
-  cep: "65910-390",
-  logradouro: "Rua Juruna",
+  cep: '65910-390',
+  logradouro: 'Rua Juruna',
   numero: 419,
-  bairro: "Vila Redenção I",
-  cidade: "Imperatriz",
-  estado: "MA"
-}
+  bairro: 'Vila Redenção I',
+  cidade: 'Imperatriz',
+  estado: 'MA'
+};

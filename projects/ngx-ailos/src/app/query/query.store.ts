@@ -1,8 +1,7 @@
+import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
-import { IPessoa } from '../../../../ailos-lib/ngx-api/src/lib/models/pessoa';
-import { Injectable } from "@angular/core";
-import { ReplaySubject, Subject } from "rxjs";
-import { PessoaAPI } from '@ailos-lib/ngx-api';
+import { ReplaySubject, Subject } from 'rxjs';
+import { PessoaAPI, IPessoa } from '@ailos-lib/ngx-api';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +27,7 @@ export class QueryStore {
    * @param searchTerm: string
    */
   search(searchTerm: string): void {
-    let params = new HttpParams()
+    const params = new HttpParams()
       .set('cpf', searchTerm)
       .set('singular', '1');
 

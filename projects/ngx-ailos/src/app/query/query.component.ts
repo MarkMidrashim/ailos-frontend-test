@@ -15,10 +15,10 @@ import { Observable } from 'rxjs';
 })
 export class QueryComponent implements OnInit {
 
-  public contentLoaded: boolean = false;
-  public searchPeople: boolean = false;
-  public cpfInputMask: string = '000.000.000-00';
-  public cpfPlaceholder: string = '___.___.___-__';
+  public contentLoaded = false;
+  public searchPeople = false;
+  public cpfInputMask = '000.000.000-00';
+  public cpfPlaceholder = '___.___.___-__';
   public form!: FormGroup;
   public pessoa$: Observable<IPessoa> = this._store.pessoa$;
 
@@ -35,8 +35,8 @@ export class QueryComponent implements OnInit {
     private _breadcrumbService: NgxBreadcrumbService
   ) { }
 
-  ngOnInit() {
-    setTimeout(() => { this.contentLoaded = true }, 1500);
+  ngOnInit(): void {
+    setTimeout(() => { this.contentLoaded = true; }, 1500);
 
     this.form = this._formBuilder.group({
       cpf: new FormControl('', [
@@ -79,7 +79,7 @@ export class QueryComponent implements OnInit {
    * Método responsável por verificar se o CPF existe na base de dados
    */
   private checkResultSearch(): void {
-    var error: boolean = false;
+    let error = false;
     this._store.notify$.subscribe(() => {
       Swal.fire(
         'CPF Não identificado!',

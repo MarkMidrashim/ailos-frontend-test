@@ -85,7 +85,7 @@
         "test": {
           "builder": "@angular-builders/jest:run",
           "options": {
-            "polyfills": "projects/ngx-ailos/src/polyfills.ts",
+            "polyfills": ["projects/ngx-ailos/src/polyfills.ts"],
             "tsConfig": "projects/ngx-ailos/tsconfig.spec.json",
             "assets": [
               "projects/ngx-ailos/src/favicon.ico",

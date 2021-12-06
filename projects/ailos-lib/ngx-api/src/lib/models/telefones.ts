@@ -18,6 +18,6 @@ export class Telefones implements ITelefones {
 
 export const publicPhonesMock: ITelefones = {
   id: 3,
-  fixo: "(98) 2644-1633",
-  celular: "(98) 99671-5373"
-}
+  fixo: '(98) 2644-1633',
+  celular: '(98) 99671-5373'
+};

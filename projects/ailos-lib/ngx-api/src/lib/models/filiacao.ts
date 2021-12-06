@@ -18,6 +18,6 @@ export class Filiacao implements IFiliacao {
 
 export const publicParentageMock: IFiliacao = {
   id: 3,
-  mae: "Sophia Tereza",
-  pai: "Luan Kaique Carlos Eduardo Aragão"
-}
+  mae: 'Sophia Tereza',
+  pai: 'Luan Kaique Carlos Eduardo Aragão'
+};
